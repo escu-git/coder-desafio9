@@ -1,0 +1,19 @@
+//Example products: 
+
+	{
+		"title": "Dominar 400",
+		"price": "760000.00",
+		"thumbnail": "https://syr.us/5k4"
+	}
+
+	{
+		"title": "Svartpilen 400",
+		"price": "900000.00",
+		"thumbnail": "https://syr.us/62V"
+	}
+
+	{
+        "title": "Yamaha R3",
+        "price": "1000000.00",
+        "thumbnail": "https://syr.us/n29"
+	}
