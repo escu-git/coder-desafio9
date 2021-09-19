@@ -1,32 +1,23 @@
 import express from 'express';
 import { product } from './newProduct.js';
-import handlebars from 'express-handlebars';
-export const app = express();
 export const routerProductos = express.Router();
-
 export const productos=[];
 
-app.engine(
-    "hbs",
-    handlebars({
-        extname: '.hbs',
-        defaultLayout:'index.hbs',
-        layoutsDir:"../layouts",
-    })
-);
-
-app.set('views', '../layouts');
-app.set('view engine', 'hbs');
-
 routerProductos.get('/productos/vista', (req, res)=>{
-    console.log(productos)
-    res.render('productos', {datos: productos})
+    try{
+    if(productos.length != 0) {
+        res.render('main', {products: productos, exist:true})
+    }else{
+        res.render('main', {exist:false})
+    }
+    }catch(err){
+        res.status(400).json({error:err})
+    }
 })
 
 routerProductos.get('/productos/listar', (req, res)=>{
     try{
         if(productos.length == 0){
-            console.log(productos)
             return res.status(400).json({error:'No hay productos para mostrar'})
         }else{
             return res.status(200).json({data:productos})
