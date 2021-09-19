@@ -44,7 +44,7 @@ routerProductos.post('/productos/guardar', (req, res)=>{
     const newProduct = new product(title, price, thumbnail);
     productos.length < 1 ? newProduct.productId(0) : newProduct.productId(productos.length)
     productos.push(newProduct)
-    return res.status(200).json({data:newProduct, allProducts:productos})
+    return res.redirect('/api/productos/vista')
     }catch(err){
         console.log(err)
     }
