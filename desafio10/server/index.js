@@ -1,11 +1,11 @@
 import express from 'express';
 import { routerProductos} from './Routers.js';
-import { handlebarsEngine } from './handlebars.js';
+import { pugEngine } from './template.js';
 export const app = express();
 const PORT = 8080;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static('../public'));
+app.use(express.static('../public')); //Utiliza de manera predeterminada ésta folder.
 app.use('/api', routerProductos);
 
 const server = app.listen(PORT,()=>{
@@ -15,5 +15,5 @@ server.on('error', (err)=>console.log(`Error on server: ${err} ❌`));
 
 
 
-handlebarsEngine() //Handlebars config
+pugEngine() //Handlebars config
 
