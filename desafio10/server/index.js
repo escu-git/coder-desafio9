@@ -1,6 +1,6 @@
 import express from 'express';
 import { routerProductos} from './Routers.js';
-import { handlebarsEngine } from './handlebars.js';
+import { ejsEngine } from './template.js';
 export const app = express();
 const PORT = 8080;
 app.use(express.json());
@@ -15,5 +15,5 @@ server.on('error', (err)=>console.log(`Error on server: ${err} ❌`));
 
 
 
-handlebarsEngine() //Handlebars config
+ejsEngine() //Handlebars config
 
