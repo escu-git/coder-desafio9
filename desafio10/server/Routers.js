@@ -6,9 +6,9 @@ export const productos=[];
 routerProductos.get('/productos/vista', (req, res)=>{
     try{
     if(productos.length != 0) {
-        res.render('main', {products: productos, exist:true})
+        res.render('pages/productList.ejs', {products: productos, exist:true})
     }else{
-        res.render('main', {exist:false})
+        res.render('pages/productList.ejs', {exist:false})
     }
     }catch(err){
         res.status(400).json({error:err})

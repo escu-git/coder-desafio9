@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../styles.ejs'); %>
+        <title>Ahora con EJS :)</title>
+    </head>
+
+    <body class="container">
+        <main>
+            <h1>Productos</h1>
+            <% if(exist){ %>
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Thumbnail</th>
+                    </tr>
+                    <% products.forEach(function(x) { %>
+                        <tr>
+                            <td><%= x.title %></td>
+                            <td>$<%= x.price %></td>
+                            <td><img src='<%= x.thumbnail %>'></td>
+                        </tr>
+                    <% }); %>
+                </table>            
+            <% } else { %>
+                <article>
+                    No hay productos!
+                </article>
+            <% } %>
+        </main>
+    </body>
+</html>
